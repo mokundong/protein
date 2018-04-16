@@ -128,7 +128,7 @@ params = {
     'subsample': 0.7,
     'colsample_bytree': 0.7,
     'colsample_bylevel': 0.7,
-    'learning_rate': 0.01,
+    'learning_rate': 0.05,
     'tree_method': 'exact',
     'seed': 2017,
     'nthread': 12,
