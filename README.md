@@ -12,7 +12,7 @@
 ## 数据文件解释  
 ### 1.蛋白质信息 df_protein.csv
 
-数据共两列，分别是蛋白质id和蛋白质的一级结构序列的矢量化结果。（关于结构序列是什么形式，可参考[wiki链接](https://zh.wikipedia.org/wiki/%E8%9B%8B%E7%99%BD%E8%B3%AA%E4%B8%80%E7%B4%9A%E7%B5%90%E6%A7%8B))  
+数据共两列，分别是蛋白质id和蛋白质的一级结构序列的矢量化结果。关于结构序列是什么形式，可参考[wiki链接](https://zh.wikipedia.org/wiki/%E8%9B%8B%E7%99%BD%E8%B3%AA%E4%B8%80%E7%B4%9A%E7%B5%90%E6%A7%8B)
 
 例如：  
 |Protein_ID|Sequence |  
