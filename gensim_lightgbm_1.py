@@ -50,8 +50,8 @@ data = data.merge(feat, on='Molecule_ID', how='left')#206467,188
 
 
 #3、protein 蛋白质 词向量训练
-n = 128
-texts = [[word for word in re.findall(r'.{3}',document)] 
+n = 300
+texts = [[word for word in re.findall(r'.{1}',document)] 
                for document in list(protein_concat['Sequence'])]
 
 model = Word2Vec(texts,size=n,window=4,min_count=1,negative=3,
@@ -128,7 +128,7 @@ params = {
     'subsample': 0.7,
     'colsample_bytree': 0.7,
     'colsample_bylevel': 0.7,
-    'learning_rate': 0.05,
+    'learning_rate': 0.035,
     'tree_method': 'exact',
     'seed': 2017,
     'nthread': 12,
