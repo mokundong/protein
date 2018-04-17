@@ -50,7 +50,7 @@ data = data.merge(feat, on='Molecule_ID', how='left')#206467,188
 
 
 #3、protein 蛋白质 词向量训练
-n = 300
+n = 250
 texts = [[word for word in re.findall(r'.{1}',document)] 
                for document in list(protein_concat['Sequence'])]
 
@@ -122,20 +122,20 @@ params = {
     #'objective': 'multiclass',
     #'metric': 'multi_error',
     #'num_class':5,
-    'min_child_weight': 3,
-    'num_leaves': 2 ** 5,
-    'lambda_l2': 10,
-    'subsample': 0.7,
-    'colsample_bytree': 0.7,
-    'colsample_bylevel': 0.7,
-    'learning_rate': 0.035,
+    'min_child_weight': 3,#3
+    'num_leaves': 2 ** 6,#2 ** 5
+    'lambda_l2': 10,#10
+    'subsample': 0.7,#0.7
+    'colsample_bytree': 0.7,#0.7
+    'colsample_bylevel': 0.7,#0.7
+    'learning_rate': 0.05,#0.05
     'tree_method': 'exact',
-    'seed': 2017,
-    'nthread': 12,
+    'seed': 2017,#2017
+    'nthread': 12,#12
     'silent': True
     }
 
-num_round = 3000
+num_round = 3000#3000
 gbm = lgb.train(params, 
                   train, 
                   num_round, 
