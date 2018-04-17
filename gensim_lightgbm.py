@@ -38,7 +38,7 @@ feat = []
 for i in range(0,len(df_molecule)):
     feat.append(df_molecule['Fingerprint'][i].split(','))
 feat = pd.DataFrame(feat)
-feat = feat.astype('int')
+feat = feat.astype('int')#111216,167
 
 feat.columns=["Fingerprint_{0}".format(i) for i in range(0,167)]
 feat["Molecule_ID"] = df_molecule['Molecule_ID']#111216,168
