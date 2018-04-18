@@ -54,8 +54,8 @@ n = 250
 texts = [[word for word in re.findall(r'.{1}',document)] 
                for document in list(protein_concat['Sequence'])]
 
-model = Word2Vec(texts,size=n,window=4,min_count=1,negative=3,
-                 sg=1,sample=0.001,hs=1,workers=4)  
+model = Word2Vec(texts,size=n,window=10,min_count=1,negative=3,
+                 sg=1,sample=0.001,hs=1,workers=4)  #window=4,min_count=1,negative=3,sg=1,sample=0.001,hs=1,workers=4
  
 
 vectors = pd.DataFrame([model[word] for word in (model.wv.vocab)])
@@ -122,20 +122,22 @@ params = {
     #'objective': 'multiclass',
     #'metric': 'multi_error',
     #'num_class':5,
-    'min_child_weight': 3,#3
-    'num_leaves': 2 ** 6,#2 ** 5
+	#'min_data_in_leaf':1000,
+    'min_child_weight': 10,#3
+	#'max_depth':7,#5
+    'num_leaves': 80,#2 ** 5
     'lambda_l2': 10,#10
     'subsample': 0.7,#0.7
     'colsample_bytree': 0.7,#0.7
     'colsample_bylevel': 0.7,#0.7
-    'learning_rate': 0.05,#0.05
+    'learning_rate': 0.1,#0.05
     'tree_method': 'exact',
     'seed': 2017,#2017
     'nthread': 12,#12
     'silent': True
     }
 
-num_round = 3000#3000
+num_round = 5000#3000
 gbm = lgb.train(params, 
                   train, 
                   num_round, 
