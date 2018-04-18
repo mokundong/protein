@@ -55,7 +55,7 @@ texts = [[word for word in re.findall(r'.{1}',document)]
                for document in list(protein_concat['Sequence'])]
 
 model = Word2Vec(texts,size=n,window=10,min_count=1,negative=3,
-                 sg=1,sample=0.001,hs=1,workers=4)  #window=4,min_count=1,negative=3,sg=1,sample=0.001,hs=1,workers=4
+                 sg=0,sample=0.001,hs=1,workers=4)  #window=4,min_count=1,negative=3,sg=1,sample=0.001,hs=1,workers=4
  
 
 vectors = pd.DataFrame([model[word] for word in (model.wv.vocab)])
