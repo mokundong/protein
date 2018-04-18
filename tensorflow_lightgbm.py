@@ -15,6 +15,7 @@ import os
 import datetime
 import numpy as np
 import pandas as pd
+import tensorflow as tf
 import lightgbm as lgb
 import gensim 
 from gensim.models import Word2Vec  
@@ -58,3 +59,4 @@ data = data.merge(feat, on='Molecule_ID', how='left')#206467,188
 n = 128
 texts = [[word for word in re.findall(r'.{3}',document)] 
                for document in list(protein_concat['Sequence'])]
+
